@@ -18,7 +18,7 @@ link:
 - {name: PDF, url: https://arxiv.org/pdf/2305.11290.pdf}
 ---
 
-![Image name](/assets/worldwide-lift.svg)
+![Image name](/assets/worldwide-lift.png)
 *Google Maps route accuracy improvements in several world regions, when using our inverse reinforcement learning policy RHIP.*
 
 <br>
