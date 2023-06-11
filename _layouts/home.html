@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <header class="post-header">
+          {%- if page.title -%}
+            <h1 class="page-heading">{{ page.title }}</h1>
+          {%- endif -%}
+          <p class="post-meta">
+            {%- if page.author -%}
+              {% for author in page.author %}
+                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                  <span class="p-author h-card" itemprop="name">{{ author.name }}<sup>{{ author.affiliation }}</sup></span></span>
+                  {%- if forloop.last == false %}, {% endif -%}
+              {% endfor %}
+            {%- endif -%}
+            <br>
+            {%- if page.affiliation -%}
+              {% for affiliation in page.affiliation%}
+                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                  <span class="p-author h-card" itemprop="name"><sup>{{ affiliation.number }}</sup>{{ affiliation.name }}</span></span>
+                  {%- if forloop.last == false %}, {% endif -%}
+              {% endfor %}
+            {%- endif -%}
+          </p>
+            {%- if page.link -%}
+              {% for link in page.link %}
+                <form action="{{ link.url }}">
+                  <button style="button">
+                    {{ link.name }}
+                  </button>
+                </form>
+              {% endfor %}
+            {%- endif -%}</p>
+        </header>
+
+        {{ content }}
+      </div>
+    </main>
+
+  </body>
+
+</html>
